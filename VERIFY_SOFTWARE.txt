@@ -1,0 +1,69 @@
+Verification of the bitgen software
+===================================
+
+It is important to verify that the bitgen software has not been changed.
+
+This is done by verifying the signature of the software package.
+
+Two methods are used to sign a bitgen software package:
+bitsig and gpg.
+
+bitsig is the preferred alternative, but best is to use both of them.
+However, bitsig verification require that the bitsig software has
+already been installed. When installing bitgen/bitsig for the first
+time, GPG can be used instead since this software already exists in many cases.
+
+
+Verification using bitsig
+=========================
+Verification with bitsig is done with the following command:
+
+$ bitsig verify bitgen_n.nn.tar.gz
+
+The folder should contain the two files:
+* bitgen_n.nn.tar.gz
+* bitgen_n.nn.tar.gz.bitsig
+
+The bitsig printout should look like this:
+> Verify OK for address: 1L5TnzknDGZuHde9Uz8mBjZAq6tz8MnN97
+
+The signing address is 1L5TnzknDGZuHde9Uz8mBjZAq6tz8MnN97, 
+but this should be *double checked* with other sources, 
+such as internet forums. 
+
+Also, older versions of bitgen that have been downloaded will
+contain this information (starting with version 0.17), so older
+software packages can be used as a source of signature address.
+
+Verification using gpg
+======================
+In order to verify with gpg, the bitgen gpg public key has to be imported.
+Import is done with the following command:
+
+$ gpg --import bitgen_public.gpg
+
+The file "bitgen_public.gpg" is included in this software package.
+However, it is important that the gpg public key is verified
+for authenticity.
+
+The gpg key fingerprint is:
+60A4 5D96 0CAF 0923 19FF  F2D0 71DF C6C3 CAA8 F7CB
+
+However, this information should be *double-checked* with other 
+sources such as internet forums. Note that older versions of bitgen
+that have been downloaded will contain this information.
+
+Verification with gpg is done with the following command
+
+$ gpg --verify bitgen_n.nn.tar.gz.asc 
+
+The folder should contain the two files:
+* bitgen_n.nn.tar.gz
+* bitgen_n.nn.tar.gz.asc
+
+The gpg  printout should look like this:
+gpg: Good signature
+
+
+
+

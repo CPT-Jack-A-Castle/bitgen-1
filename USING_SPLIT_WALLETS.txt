@@ -1,0 +1,48 @@
+Using split wallets with bitgen
+===============================
+
+A wallet private key can be split in several parts so that
+all parts are required to reconstruct the private key.
+
+In bitgen split wallets are implemented with similar technique
+as one-time-pads for encryption. 
+
+When a 256 bit private key is to be generated, several 256 bit
+random numbers are generated. In order to create the final private key,
+all the random numbers are xor:ed together with a bitwise 
+xor operation. For example if the following two random numbers have
+been generated:
+
+EC634FA1DA459C65686DCA5373EB855D9E6E1A88638F8891A71E81976F3F059F
+5DA8582802EB0FDCCBEB6964A4208046E319CF924DC83AEAA392A47F38FB5CD8
+
+The final private key is the xor of these, which gives:
+B1CB1789D8AE93B9A386A337D7CB051B7D77D51A2E47B27B048C25E857C45947
+
+This process can also be generalized to a N out-of N process, 
+for any N larger than 2. 
+
+Note that all random numbers are needed to reconstruct the private key, 
+it is NOT possible to use M out-of N where M < N. 
+
+If the pads are stored separately, it is not possible to gain any
+information about the final private keys without having all parts.
+
+To generate the random numbers called "pads" with bitgen, the
+"otpgen" command is used. For example: 
+
+$ bitgen otpgen 2 random
+
+This will generate two random numbers, and will also compute the
+corresponding public address. The pads are saved in different files 
+(txt and postscript).
+
+In order to recreate the final private key, the "otp" command should
+be used, for example:
+
+$ bitgen otp EC634FA1DA459C65686DCA5373EB855D9E6E1A88638F8891A71E81976F3F059F 5DA8582802EB0FDCCBEB6964A4208046E319CF924DC83AEAA392A47F38FB5CD8
+
+This will generate the final private key.
+
+
+

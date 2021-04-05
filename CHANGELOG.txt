@@ -1,0 +1,105 @@
+Version 0.8.1
+=============
+
+* Fixed Argon2 compile problem, added option -msse2 for g++
+* Added possiblity to skip brainwallet/Argon2 funktionality by using
+  the make command "make withoutbw".
+* Updated documentation
+
+Version 0.9
+===========
+Note: The bitsig database format as changed!
+Any old keychain need to be updated. 
+This can be done as follows:
+
+Rename the ~/.bitsig folder:
+$ mv .bitsig bitsig_db_backup
+
+Then import the keys again. The key information is present in
+the renamed folder bitsig_db_backup.
+
+
+* Made "-" option possible to use with shell redirection
+* Changed command line parsing to be more flexible
+* Added options for random address generation
+* Fixed building on non x86 targets
+* Changed bitsig database format
+* Added encryption support
+* ... and more
+
+Version 0.10
+============
+* Litecoin support
+* Added EC arithmetic operations
+* Refactored
+
+Version 0.11
+============
+* Improved performance
+* Bitcoin testnet support
+* Dogecoin support
+* Namecoin support
+* Peercoin support
+
+Version 0.12
+============
+* Added Windows support
+* Code refactoring
+* Added python tests
+
+Version 0.13
+============
+* Added support for folders to improve handling of multiple addresses
+* Made it clean in the source code which code belongs to libraries
+* Added windows binaries as direct downloads
+* Added extra information about addresses
+
+Version 0.14
+============
+* Improved performance
+* Added support for transaction decode
+* Added support for script decode
+* Added support for saving transactions
+* Added support for saving scripts
+* Added support for executing transactions
+
+Version 0.15
+============
+* Added transaction support
+* Added support for vertcoin
+* Added support for feathercoin
+
+Version 0.16
+============
+* Added support for extended address (xprv, BIP 32)
+* Added support for extended address mnemonics
+* Added bitcoin cash support
+
+Version 0.17
+============
+* Added support for split addresses with one-time-pad
+
+Version 0.18
+============
+* Added support electrum menomic generation
+
+Version 0.19
+============
+* Bitcoin cash ticker changed to "bch"
+* Bitcoin cash updates
+* Bitcoin cash is now the default in bitgen application
+
+Version 0.20
+============
+* Simplified use of consecutive numbers for names of addresses
+* Changed file naming for OTP generation
+* Changed format of generated OTP files
+
+Version 0.21
+============
+* Added support for bitcoin cash transactions
+* Added support for Schnorr signatures
+* Added Simple Ledger support (SLP)
+* Moved vanity generation to separate application
+* Added support for counters when generating addresses
+
